@@ -1,5 +1,5 @@
-var WebSocketStarter = require("./app/websocket");
-var ExpressStarter = require("./app/express");
+var WebSocketStarter = require("./websocket/websocket");
+var ExpressStarter = require("./express/express");
 
 var WebSocketPort = 5000;
 var expressPort = 80;
