@@ -11,5 +11,6 @@
     <orderEntry type="library" name="prop-types-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="react-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="react-dom-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="reduce-reducers-DefinitelyTyped" level="application" />
   </component>
 </module>

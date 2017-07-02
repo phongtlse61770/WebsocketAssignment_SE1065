@@ -2,11 +2,11 @@ require('webpack');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var path = require('path');
 
-var BUILD_DIR = path.resolve(__dirname, 'express/view');
-var APP_DIR = path.resolve(__dirname, 'app');
+var BUILD_DIR = path.resolve(__dirname,"server" ,'express',"view");
+var APP_DIR = path.resolve(__dirname, "client",'app');
 
 var config = {
-    entry: APP_DIR + '/index.jsx',
+    entry: path.join(APP_DIR, 'index.jsx'),
     output: {
         path: BUILD_DIR,
         filename: 'bundle.js'
@@ -24,7 +24,7 @@ var config = {
     plugins: [
         new CopyWebpackPlugin([
             {
-                from: path.join("node_modules", "react-md", "dist", "react-md.indigo-purple.min.css"),
+                from: path.resolve(__dirname,"node_modules", "react-md", "dist", "react-md.indigo-purple.min.css"),
                 to: BUILD_DIR
             }
         ])

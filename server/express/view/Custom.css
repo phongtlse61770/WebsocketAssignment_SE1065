@@ -1,0 +1,18 @@
+body{
+    margin: 0;
+}
+
+#drawer{
+    height: 100vh;
+}
+
+#AppRoot > .md-grid{
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+#registerDialog button{
+    margin: 0 auto;
+    display: flex;
+}
