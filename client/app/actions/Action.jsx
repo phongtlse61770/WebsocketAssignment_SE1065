@@ -1,5 +1,8 @@
 import {ActionTypes} from '../../../Shared/ActionTypes';
 import {Store} from '../store/Store.jsx';
+import {WebSocketClient} from '../WebSocketClient.jsx';
+
+const wsClient = new WebSocketClient();
 
 class Action {
     /**

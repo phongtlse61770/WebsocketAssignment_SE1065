@@ -72,6 +72,7 @@ class RegisterContent extends React.PureComponent{
             />
             <Button
                 flat
+                primary
                 label="Register"
                 onClick={this.onRegister}
             />

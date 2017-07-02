@@ -6,8 +6,13 @@ body{
     height: 100vh;
 }
 
-#AppRoot > .md-grid{
+#AppRoot > div > .md-grid{
     position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+#AppRoot > div{
     margin: 0;
     padding: 0;
 }

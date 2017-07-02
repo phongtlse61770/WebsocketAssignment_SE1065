@@ -4,6 +4,7 @@ import {Store} from './store/Store.jsx';
 //Components
 import {UserDrawer} from "./component/UserDrawer.jsx";
 import {RegisterDialog} from './component/RegisterDialog.jsx';
+
 //-----------------------------------------
 
 class App extends React.Component {
@@ -34,9 +35,12 @@ class App extends React.Component {
         let content;
         if (currentUser) {
             content = (
-                <div>
-                    <h1>Hello {currentUser.name}</h1>
-                </div>
+                <UserDrawer drawerTitle="Users">
+                    <div>
+                        <h1>Hello {currentUser.name}</h1>
+                    </div>
+                </UserDrawer>
+
             )
         } else {
             content = (
@@ -45,9 +49,9 @@ class App extends React.Component {
         }
 
         return (
-            <UserDrawer drawerTitle="Users">
+            <div>
                 {content}
-            </UserDrawer>
+            </div>
         );
     }
 }

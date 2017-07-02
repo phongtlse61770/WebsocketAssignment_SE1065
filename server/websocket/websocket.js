@@ -11,9 +11,7 @@ function htmlEncode(str) {
 
 
 //Http server
-var server = http.createServer(function (request, response) {
-
-});
+var server = http.createServer();
 
 
 //WebSocket server
@@ -24,7 +22,7 @@ wsServer = new WebSocketServer({
 wsServer.on("request", function (request) {
     var connection = request.accept(null, request.origin);
     connection.on("message", function (message) {
-
+        console.log("Server:"+message);
     });
     connection.on("close", function (connection) {
 
