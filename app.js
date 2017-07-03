@@ -1,4 +1,4 @@
-var WebSocketStarter = require("./server/websocket/websocket");
+var WebSocketStarter = require("./server/websocket/WebSocketServer");
 var ExpressStarter = require("./server/express/express");
 var constant = require('./Shared/Constants');
 

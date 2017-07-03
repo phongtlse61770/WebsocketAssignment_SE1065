@@ -1,7 +1,7 @@
-import {webSocketPort} from '../../Shared/Constants';
+import {webSocketPort} from '../../../Shared/Constants';
 
 class WebSocketClient{
-    constructor(){
+    constructor(receiveCallback){
         window.WebSocket = window.WebSocket || window.MozWebSocket;
         let connection = new WebSocket('ws://localhost:'+webSocketPort);
 
@@ -14,6 +14,7 @@ class WebSocketClient{
         connection.onmessage  = this.handleOnMessage;
 
         this.connection = connection;
+        this.receiveCallback = receiveCallback;
     }
 
     sendMessage(message){
@@ -30,8 +31,7 @@ class WebSocketClient{
 
     handleOnMessage(message){
         try {
-            let json = JSON.parse(message.data);
-            console.log(json);
+            this.receiveCallback(message);
         } catch (e) {
             console.log('This doesn\'t look like a valid JSON: ',
                 message.data);

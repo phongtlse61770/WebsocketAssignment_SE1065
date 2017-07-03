@@ -1,4 +1,5 @@
 import {ActionTypes} from '../../../Shared/ActionTypes';
+import {WebSocketService} from '../websocket/WebSocketService.jsx';
 
 let initialState = {
     users: [],
@@ -18,7 +19,7 @@ let reducer = function (state, action) {
     let newState = state;
     switch (type) {
         case ActionTypes.RegisterUser:
-            newState = Object.assign({}, state, {currentUser: data});
+            WebSocketService.sendAction(action);
     }
     return newState;
 };

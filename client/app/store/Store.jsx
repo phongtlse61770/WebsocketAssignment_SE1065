@@ -4,8 +4,8 @@ import {reducer} from '../reducer/Reducer.jsx';
 const store = createStore(reducer);
 const storeListener = [];
 class Store {
-    static getStore(){
-        return store;
+    static dispatch(action){
+        store.dispatch(action);
     }
 
     static getState(){

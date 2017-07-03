@@ -1,8 +1,7 @@
 const ActionTypes = {
     RegisterUser : "RegisterUser",
-    UsersChange : "UsersChange",
-    SendMessage : "SendMessage",
-    ReceiveMessage : "ReceiveMessage",
+    RegisterUserResponse : "RegisterUserResponse",
+    UsersChange : "UsersChange"
 };
 
 module.exports = {ActionTypes : ActionTypes};

@@ -1,13 +1,14 @@
 var WebSocketServer = require("websocket").server;
 var express = require("express");
 var http = require("http");
+var ActionTypes = require("../../Shared/ActionTypes").ActionTypes;
+var Store = require("./redux/Store").Store;
 
-
-function htmlEncode(str) {
-    return String(str)
-        .replace(/&/g, '&amp;').replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-}
+// function htmlEncode(str) {
+//     return String(str)
+//         .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+//         .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+// }
 
 
 //Http server
@@ -22,10 +23,11 @@ wsServer = new WebSocketServer({
 wsServer.on("request", function (request) {
     var connection = request.accept(null, request.origin);
     connection.on("message", function (message) {
-        console.log("Server:"+message);
+        var action = JSON.parse(message.utf8Data);
+        Store.dispatch(action);
     });
     connection.on("close", function (connection) {
-
+        console.log("Connection close");
     });
 });
 

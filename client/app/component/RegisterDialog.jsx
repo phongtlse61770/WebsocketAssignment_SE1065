@@ -2,8 +2,9 @@ import React, {PureComponent} from 'react';
 import Dialog from 'react-md/lib/Dialogs';
 import Button from 'react-md/lib/Buttons/Button';
 import TextField from 'react-md/lib/TextFields/TextField';
-import {Action} from '../actions/Action.jsx';
+import {Action} from '../../../Shared/Action';
 import {User} from "../../../Shared/User";
+import {Store} from '../store/Store.jsx';
 
 class RegisterDialog extends PureComponent {
     constructor(props) {
@@ -17,7 +18,8 @@ class RegisterDialog extends PureComponent {
 
     handleRegister(username){
         let user = new User(undefined,username);
-        Action.registerUser(user);
+        let action = Action.registerUser(user);
+        Store.dispatch(action);
         this.setState({visible:false});
     }
 
@@ -46,7 +48,6 @@ class RegisterDialog extends PureComponent {
 class RegisterContent extends React.PureComponent{
     constructor(){
         super();
-
         this.onRegister = this.onRegister.bind(this);
     }
 
