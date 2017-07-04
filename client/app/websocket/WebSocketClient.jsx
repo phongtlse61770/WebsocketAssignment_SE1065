@@ -1,41 +1,31 @@
 import {webSocketPort} from '../../../Shared/Constants';
 
-class WebSocketClient{
-    constructor(receiveCallback){
+class WebSocketClient {
+    constructor(receiveCallback) {
         window.WebSocket = window.WebSocket || window.MozWebSocket;
-        let connection = new WebSocket('ws://localhost:'+webSocketPort);
+        let connection = new WebSocket('ws://localhost:' + webSocketPort);
 
         this.handleOnError = this.handleOnError.bind(this);
         this.handleOnOpen = this.handleOnOpen.bind(this);
-        this.handleOnMessage = this.handleOnMessage.bind(this);
+        // this.handleOnMessage = this.handleOnMessage.bind(this);
 
         connection.onopen = this.handleOnOpen;
-        connection.onerror  = this.handleOnError;
-        connection.onmessage  = this.handleOnMessage;
+        connection.onerror = this.handleOnError;
+        connection.onmessage = receiveCallback;
 
         this.connection = connection;
-        this.receiveCallback = receiveCallback;
     }
 
-    sendMessage(message){
+    sendMessage(message) {
         this.connection.send(message);
     }
 
-    handleOnError(err){
+    handleOnError(err) {
         console.log('Connect Error: ' + err.toString());
     }
 
-    handleOnOpen(){
+    handleOnOpen() {
         console.log('WebSocket Client Connected');
-    }
-
-    handleOnMessage(message){
-        try {
-            this.receiveCallback(message);
-        } catch (e) {
-            console.log('This doesn\'t look like a valid JSON: ',
-                message.data);
-        }
     }
 }
 

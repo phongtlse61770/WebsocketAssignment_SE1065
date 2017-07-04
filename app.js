@@ -1,10 +1,9 @@
-var WebSocketStarter = require("./server/websocket/WebSocketServer");
-var ExpressStarter = require("./server/express/express");
-var constant = require('./Shared/Constants');
-
+const WebSocketService = require("./server/websocket/WebSocketService");
+const ExpressStarter = require("./server/express/express");
+const constant = require('./Shared/Constants');
 
 var WebSocketPort = constant.webSocketPort;
 var expressPort = constant.expressPort;
 
-WebSocketStarter.start(WebSocketPort);
+WebSocketService.start(WebSocketPort);
 ExpressStarter.start(expressPort);

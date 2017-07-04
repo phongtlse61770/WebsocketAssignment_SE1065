@@ -1,8 +1,8 @@
-class Message {
-    constructor(sender,message){
-        this.sender = sender;
-        this.message = message;
-    }
+function Message(sender,message) {
+    this.sender = sender;
+    this.message = message;
 }
 
-export {Message}
+module.exports = {
+    Message : Message
+};
